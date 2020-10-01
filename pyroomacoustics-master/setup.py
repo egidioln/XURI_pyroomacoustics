@@ -6,9 +6,9 @@ import sys
 # To use a consistent encoding
 from codecs import open
 from os import path
-mypath = ''
+
 # import version from file
-with open(mypath+"pyroomacoustics/version.py") as f:
+with open("pyroomacoustics/version.py") as f:
     exec(f.read())
 
 try:
@@ -40,7 +40,7 @@ class get_pybind_include(object):
 
 
 # build C extension for image source model
-libroom_src_dir = mypath+"pyroomacoustics/libroom_src"
+libroom_src_dir = "pyroomacoustics/libroom_src"
 libroom_files = [
     os.path.join(libroom_src_dir, f)
     for f in [
@@ -72,7 +72,7 @@ ext_modules = [
     ),
     Extension(
         "pyroomacoustics.build_rir",
-        [mypath+"pyroomacoustics/build_rir.pyx"],
+        ["pyroomacoustics/build_rir.pyx"],
         language="c",
         extra_compile_args=[],
     ),
@@ -176,7 +176,7 @@ setup_kwargs = dict(
     # Libroom C extension
     ext_modules=ext_modules,
     # Necessary to keep the source files
-    package_data={"pyroomacoustics": ["*.pxd", "*.pyx", mypath+"data/materials.json"]},
+    package_data={"pyroomacoustics": ["*.pxd", "*.pyx", "data/materials.json"]},
     install_requires=["Cython", "numpy", "scipy>=0.18.0", "pybind11>=2.2",],
     cmdclass={"build_ext": BuildExt},  # taken from pybind11 example
     zip_safe=False,
