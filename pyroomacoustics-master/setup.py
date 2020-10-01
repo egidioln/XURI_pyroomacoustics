@@ -6,7 +6,7 @@ import sys
 # To use a consistent encoding
 from codecs import open
 from os import path
-mypath = os.path.dirname(os.path.realpath(__file__))
+mypath = os.path.dirname(os.path.realpath(__file__))+'/'
 # import version from file
 with open(mypath+"pyroomacoustics/version.py") as f:
     exec(f.read())
